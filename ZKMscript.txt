@@ -1,0 +1,23 @@
+classpath	"%classpathLibs%"
+          "%compileArtifactPath%"
+          "%pluginArtifactPath%";
+
+open "%basedir%/target/classes/my/mavenized/*";
+
+exclude     (*.)
+  and
+            public *.*                   //exclude all public classes
+  and
+            *.* !private *               //exclude all non private fields
+  and
+            *.* !private *(*)            //exclude all non private methods
+;
+
+obfuscate   obfuscateFlow=light
+            lineNumbers=scramble
+            encryptStringLiterals=flowObfuscate
+            aggressiveMethodRenaming=false
+            keepInnerClassInfo=ifNameNotObfuscated
+            keepGenericsInfo=true;
+
+saveAll		"%basedir%/target/obfuscated-classes/";

@@ -116,6 +116,13 @@
 					</filesets>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.zelix.plugins</groupId>
+				<artifactId>zkm-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -154,4 +161,3 @@
 	</build>
 
 </project>
-
