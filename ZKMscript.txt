@@ -1,16 +1,15 @@
 classpath	"%classpathLibs%"
           "%compileArtifactPath%"
-          "%pluginArtifactPath%";
+          "%pluginArtifactPath%"
+          "%basedir%/target/repository/plugins/*.jar";
 
-open "%basedir%/target/classes/my/mavenized/*";
+// ignoreMissingReferences *.*;
+
+open "%basedir%/target/repository/plugins/my.*.jar";
 
 exclude     (*.)
   and
             public *.*                   //exclude all public classes
-  and
-            *.* !private *               //exclude all non private fields
-  and
-            *.* !private *(*)            //exclude all non private methods
 ;
 
 obfuscate   obfuscateFlow=light
@@ -20,4 +19,7 @@ obfuscate   obfuscateFlow=light
             keepInnerClassInfo=ifNameNotObfuscated
             keepGenericsInfo=true;
 
-saveAll		"%basedir%/target/obfuscated-classes/";
+saveAll	archiveCompression=asIs 
+        deleteEmptyDirectories=false 
+        deleteXMLComments=false 
+        "%basedir%/target/obfuscated-plugins/";

@@ -28,14 +28,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>com.zelix.plugins</groupId>
-				<artifactId>zkm-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 			</plugin>
 		</plugins>

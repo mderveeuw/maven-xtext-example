@@ -12,5 +12,6 @@ public class HeroLanguageUiModule extends AbstractHeroLanguageUiModule {
 
 	public HeroLanguageUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+		new my.mavenized.HeroLanguageRuntimeModule().bindIResourceValidator();
 	}
 }

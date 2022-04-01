@@ -92,58 +92,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 						</execution>
 					</executions>
 				</plugin>
-				
-				<plugin>
-					<groupId>com.zelix.plugins</groupId>
-					<artifactId>zkm-plugin</artifactId>
-					<version>1.0.4</version>
-					<dependencies>
-						<dependency>
-							<groupId>com.zelix.plugins</groupId>
-							<artifactId>ZKM</artifactId>
-							<version>17.0.0</version>
-							<scope>system</scope>
-							<systemPath>${ZKM_HOME}/ZKM.jar</systemPath>
-						</dependency>
-					</dependencies>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>obfuscate</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<isSkip>false</isSkip>
-						<scriptFile>../ZKMscript.txt</scriptFile>
-						<classpathLibs>
-							<lib>${java.home}/lib/rt.jar</lib>
-						</classpathLibs>
-					</configuration>
-				</plugin>
-				<plugin>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.7</version>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<configuration>
-								<tasks>
-									<move todir="${basedir}/target/unobfuscated-classes">
-										<fileset dir="${basedir}/target/classes" />
-									</move>
-									<move todir="${basedir}/target/classes">
-										<fileset dir="${basedir}/target/obfuscated-classes" />
-									</move>
-								</tasks>
-							</configuration>
-							<goals>
-								<goal>run</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
 			</plugins>
 			
 		</pluginManagement>
